@@ -14,9 +14,6 @@ permalink: /blog/
             <small class="post-meta">{{ post.date | date: date_format }} >> </small>{{ post.title | escape }}
           </a>
         </h3>
-        {%- if site.show_excerpts -%}
-          {{ post.excerpt }}
-        {%- endif -%}
       </li>
       {%- endfor -%}
     </ul>

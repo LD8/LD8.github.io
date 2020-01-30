@@ -1,0 +1,89 @@
+
+// video
+#myVideo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100vw;
+    min-height: 100vh;
+    z-index: -1;
+}
+  
+// intro
+#intro {
+    height: 100vh;
+    font-size: 2vw;
+    color: $brand-color;
+    padding-left: $spacing-unit*4;
+    margin-top: $spacing-unit*4;
+
+    h5 {
+        font-weight: 300;
+    }
+    a {
+        position: absolute;
+        margin-top: $spacing-unit;
+        font-weight: 200;
+    }
+
+    a:hover {
+        color: white;
+    }
+
+    @include media-query($on-laptop) {
+        font-size: 3vw;
+        padding-left: $spacing-unit*2;
+        margin-top: $spacing-unit*2;
+    }
+
+    @include media-query($on-palm) {
+        font-size: 4vw;
+        padding-left: $spacing-unit/2;
+        margin-top: $spacing-unit*1.5;
+    }
+}
+
+
+// -------------- bootstrap self --------------
+
+html {scroll-behavior: smooth;}
+
+.w-100 {width: 100%;}
+.h-100 {height: 100%;}
+
+.vw-100 {width:100vw; }
+.vh-100 {height: 100vh;}
+.vh-80 {height: 80vh;}
+
+.btn-secondary {@include btn-color(grey)}
+.btn-secondary:hover {@include btn-color-hover(grey)}
+
+.btn-primary {@include btn-color($brand-color)}
+.btn-primary:hover {@include btn-color-hover($brand-color)}
+    
+  
+.bg-white {background-color:$background-color;}
+.bg-yellow{background-color: rgb(255, 196, 0);}
+.shadow-lg {box-shadow: 0 0 30px rgb(36, 36, 36);}
+.shadow-sm {box-shadow: 0 0 5px rgb(7, 7, 7);}
+.rounded-lg {border-radius: 8px;}
+.rounded-sm {border-radius: 3px;}
+
+.d-flex{display: flex; flex-flow: row wrap;}
+.justify-content-center {justify-content: center;}
+.justify-content-start {justify-content: start;}
+.justify-content-end {justify-content: end;}
+.justify-content-evenly {justify-content: space-evenly;}
+.align-items-center {align-items: center;}
+.align-self-center {align-self: center}
+
+.m-5{margin: $spacing-unit * 2}
+.mt-5{margin-top: $spacing-unit * 2}
+.mt-4{margin-top: $spacing-unit * 1}
+.mt-3{margin-top: $spacing-unit * 0.6}
+.mt-2{margin-top: $spacing-unit * 0.3}
+.mt-1{margin-top: $spacing-unit * 0.1}
+.ml-auto{margin-left: auto;}
+
+.float-right{float: right;}
+.float-left{float: left;}

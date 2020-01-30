@@ -1,10 +1,7 @@
-<footer class="site-footer h-card">
+<footer class="site-footer h-card" style="background-color: rgba(255, 255, 255, 0.603);" >
   <data class="u-url" href="{{ "/" | relative_url }}"></data>
 
   <div class="wrapper">
-
-    <h2 class="footer-heading">{{ site.title | escape }}</h2>
-
     <div class="footer-col-wrapper">
       <div class="footer-col footer-col-1">
         <ul class="contact-list">
@@ -12,7 +9,7 @@
             {%- if site.author -%}
               {{ site.author | escape }}
             {%- else -%}
-              {{ site.title | escape }}
+              {{ site.title | escape }}<img src="/assets/img/logo.png" width="16px" style="margin-top:-4px; opacity: 0.5;"/>
             {%- endif -%}
             </li>
             {%- if site.email -%}
