@@ -16,6 +16,7 @@ layout: landing
     <h5>A creative developer | experimental photographer | meditator</h5>
     <a href="#header" class="btn-brand rounded-sm">
         find out more</a>
+    <button id="myBtn" onclick="myFunction()" class="btn-secondary" style="margin-top: 150px; padding: 5px 20px;">Play</button>
 </div>
 
 {%- include header.html -%}
@@ -91,5 +92,20 @@ layout: landing
 
 </main>
 <script>
-document.querySelector('#myVideo').play();
+// Get the video
+var video = document.getElementById("myVideo");
+
+// Get the button
+var btn = document.getElementById("myBtn");
+
+// Pause and play the video, and change the button text
+function myFunction() {
+  if (video.paused) {
+    video.play();
+    btn.innerHTML = "Pause";
+  } else {
+    video.pause();
+    btn.innerHTML = "Play";
+  }
+}
 </script>
