@@ -3,10 +3,13 @@
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 layout: landing
 ---
-<video autoplay muted loop id="myVideo" poster="videos/time_poster.png">
-    <source src="/videos/time.webm" type="video/webm">
-    <p>Your browser does not support the video element. Try this page in a modern browser!</p>
-</video>
+<div class="wrapper">
+    <video autoplay muted loop id="myVideo" poster="videos/time_poster.png">
+        <source src="/videos/time.webm" type="video/webm">
+        <p>Your browser does not support the video element. Try this page in a modern browser!</p>
+    </video>
+</div>
+
 
 <div id="intro" class="">
     <h1>I'm Don Lee</h1>
@@ -23,23 +26,38 @@ layout: landing
             
             <div id="PS-img" class="">
                 <img src="/images/portrait2.png" class="rounded-lg" alt="self-portrait">
-            </div><div id="PS-doc" class="mt-4">
-                <h1>a description of Don Lee.</h1>
-                <p>personal statement</p>
-                <p>some more descriptions of the personality - passion, interests</p>
-                <p>ambitions perhaps</p>
-                <a href="#" class="btn btn-danger">danger button</a>
+            </div>
+            <div id="PS-doc" class="mt-4">
+                <section>
+                    <h1>a description of Don Lee.</h1>
+                    <p>personal statement</p>
+                    <p>some more descriptions of the personality - passion, interests</p>
+                    <p>ambitions perhaps</p>
+                </section>
+                <hr>
+                <section>
+                    <h1>Contact Details</h1>
+                    <p>Email: don_lee@me.com</p>
+                    <p>we_chat: don_ald</p>
+                    <a href="#" class="btn-secondary">Download Resume</a>
+                </section>
             </div>
         </div>
 
-        <div class="ml-auto">
-            <h2>Projects</h2>
-            <ul>
-                <li>Learning Logs</li>
-                <li>Data Visualisation</li>
-                <li>Metta Forum</li>
-                <li>Donnelee.com</li>
-                <li>Web Crawling</li>
+        <div class="mt-5">
+            <h1>My Latest Work</h1>
+            <p>---- on going work ----</p>
+            <ul id="cardBoard" class="card-board">
+                <li class="card">
+                    <img src="/_ignore/gallery-example-1.jpg" alt="">
+                    <h1>Learning Logs</h1>
+
+                </li>
+                <li class="card">Data Visualisation</li>
+                <li class="card">Metta Forum</li>
+                <li class="card">Donnelee.com</li>
+                <li class="card">Russian Retail</li>
+                <li class="card">Web Crawling</li>
             </ul>
         </div>
 

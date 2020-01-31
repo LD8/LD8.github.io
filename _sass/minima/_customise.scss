@@ -62,8 +62,17 @@
         }
         #PS-img {
             width:auto;
-            img {height: 40vh;width: auto;}
+            img {height: 40vh;}
         }
+    }
+}
+
+// Card Board
+.card-board {
+    width: 100%;
+
+    > li .card {
+        width: 100%;
     }
 }
 
