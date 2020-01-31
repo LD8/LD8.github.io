@@ -3,12 +3,29 @@
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 layout: landing
 ---
-<div class="wrapper">
-    <video autoplay muted loop id="myVideo" poster="videos/time_poster.png">
-        <source src="/videos/time.webm" type="video/webm">
-        <p>Your browser does not support the video element. Try this page in a modern browser!</p>
-    </video>
-</div>
+<script>
+    // Get the video
+    var video = document.getElementById("myVideo");
+
+    // Get the button
+    var btn = document.getElementById("myBtn");
+
+    // Pause and play the video, and change the button text
+    function myFunction() {
+        if (video.paused) {
+            video.play();
+            btn.innerHTML = "Pause";
+        } else {
+            video.pause();
+            btn.innerHTML = "Play";
+        }
+    }
+</script>
+
+
+<video autoplay muted loop id="myVideo" poster="/videos/time_poster.png">
+    <source src="/videos/time.webm" type="video/webm">
+</video>
 
 
 <div id="intro" class="">
@@ -16,7 +33,8 @@ layout: landing
     <h5>A creative developer | experimental photographer | meditator</h5>
     <a href="#header" class="btn-brand rounded-sm">
         find out more</a>
-    <button id="myBtn" onclick="myFunction()" class="btn-secondary" style="margin-top: 150px; padding: 5px 20px;">Play</button>
+    <button id="myBtn" onclick="myFunction()" class="btn-secondary"
+        style="margin-top: 150px; padding: 5px 20px;">Play</button>
 </div>
 
 {%- include header.html -%}
@@ -24,11 +42,10 @@ layout: landing
 <main class="page-content bg-white" aria-label="Content">
     <div class="wrapper">
         <div id="PS">
-            
             <div id="PS-img" class="">
                 <img src="/images/portrait2.png" class="rounded-lg" alt="self-portrait">
             </div>
-            <div id="PS-doc" class="mt-4">
+            <div id="PS-doc">
                 <section>
                     <h1>a description of Don Lee.</h1>
                     <p>personal statement</p>
@@ -50,7 +67,7 @@ layout: landing
             <p>---- on going work ----</p>
             <ul id="cardBoard" class="card-board">
                 <li class="card">
-                    <img src="/_ignore/gallery-example-1.jpg" alt="">
+                    <img src="/images/gallery-example-1.jpg" width="20%" alt="">
                     <h1>Learning Logs</h1>
 
                 </li>
@@ -91,21 +108,3 @@ layout: landing
     </div>
 
 </main>
-<script>
-// Get the video
-var video = document.getElementById("myVideo");
-
-// Get the button
-var btn = document.getElementById("myBtn");
-
-// Pause and play the video, and change the button text
-function myFunction() {
-  if (video.paused) {
-    video.play();
-    btn.innerHTML = "Pause";
-  } else {
-    video.pause();
-    btn.innerHTML = "Play";
-  }
-}
-</script>

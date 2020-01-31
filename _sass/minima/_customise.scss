@@ -4,8 +4,8 @@
     position: fixed;
     top: 0;
     left: 0;
-    min-width: 100vw;
-    min-height: 100vh;
+    min-width: 100%;
+    min-height: 100%;
     z-index: -1;
 }
   
@@ -48,21 +48,23 @@
     display: flex;
     flex-flow: row wrap;
     justify-content: space-evenly;
-    height: 80vh;
-    #PS-doc {
-        width:50vw;
-    }
+
     #PS-img {
-        width:30vw;
+        width:30%;
+    }
+    #PS-doc {
+        width:50%;
+        margin-top: 30px;
+        line-height: $base-line-height * 1.5;
     }
 
     @include media-query($on-palm) {
-        #PS-doc {
-            width:90vw;
-        }
         #PS-img {
             width:auto;
             img {height: 40vh;}
+        }
+        #PS-doc {
+            width:90vw;
         }
     }
 }
