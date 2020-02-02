@@ -1,110 +1,143 @@
 ---
 # Feel free to add content and custom Front Matter to this file.
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-layout: landing
 ---
-<script>
-    // Get the video
-    var video = document.getElementById("myVideo");
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
 
-    // Get the button
-    var btn = document.getElementById("myBtn");
+{%- include head.html -%}
 
-    // Pause and play the video, and change the button text
-    function myFunction() {
-        if (video.paused) {
-            video.play();
-            btn.innerHTML = "Pause";
-        } else {
-            video.pause();
-            btn.innerHTML = "Play";
-        }
-    }
-</script>
+<body>
+
+        <video autoplay muted loop playsinline id="myVideo" poster="/videos/time_poster.png">
+            <source src="/videos/time.webm" type="video/webm">
+        </video>
+    
+    
 
 
-<video autoplay muted loop playsinline id="myVideo" poster="videos/time_poster.png">
-    <source src="/videos/time.webm" type="video/webm">
-</video>
-
-
-<div id="intro" class="">
-    <h1>I'm Don Lee</h1>
-    <h5>A creative developer | experimental photographer | meditator</h5>
-    <a href="#header" class="btn-brand rounded-sm">
-        find out more</a>
-    <button id="myBtn" onclick="myFunction()" class="btn-secondary"
-        style="margin-top: 150px; padding: 5px 20px;">Play</button>
-</div>
-
-{%- include header.html -%}
-
-<main class="page-content bg-white" aria-label="Content">
-    <div class="wrapper">
-        <div id="PS">
-            <div id="PS-img" class="">
-                <img src="/images/portrait2.png" class="rounded-lg" alt="self-portrait">
-            </div>
-            <div id="PS-doc">
-                <section>
-                    <h1>a description of Don Lee.</h1>
-                    <p>personal statement</p>
-                    <p>some more descriptions of the personality - passion, interests</p>
-                    <p>ambitions perhaps</p>
-                </section>
-                <hr>
-                <section>
-                    <h1>Contact Details</h1>
-                    <p>Email: don_lee@me.com</p>
-                    <p>we_chat: don_ald</p>
-                    <a href="#" class="btn-secondary">Download Resume</a>
-                </section>
-            </div>
-        </div>
-
-        <div class="mt-5">
-            <h1>My Latest Work</h1>
-            <p>---- on going work ----</p>
-            <ul id="cardBoard" class="card-board">
-                <li class="card">
-                    <img src="/images/gallery-example-1.jpg" width="20%" alt="">
-                    <h1>Learning Logs</h1>
-
-                </li>
-                <li class="card">Data Visualisation</li>
-                <li class="card">Metta Forum</li>
-                <li class="card">Donnelee.com</li>
-                <li class="card">Russian Retail</li>
-                <li class="card">Web Crawling</li>
-            </ul>
-        </div>
-
-        <section class="">
-
-            <h2>Experience</h2>
-            <ul>
-                <li>
-                    ## 2000-2010
-                    ipsum lorum .....</li>
-                <li>
-                    ## 2010-2020
-                    ipsum lorum .....</li>
-            </ul>
-        </section>
-
-        <section class="">
-            <h2>Education</h2>
-            <ul>
-                <li>
-                    ## 2000-2010
-                    ipsum lorum .....</li>
-                <li>
-                    ## 2010-2020
-                    ipsum lorum .....</li>
-            </ul>
-
-        </section>
-
+    <div id="intro" class="">
+        <h1>I'm Don Lee</h1>
+        <h5>A creative developer | experimental photographer | meditator</h5>
+        <a href="#header" class="btn-brand rounded-sm">
+            find out more</a>
+        <button id="myBtn" onclick="myFunction()" class="btn-brand rounded-sm">&#9658 &#10074&#10074</button>
     </div>
 
-</main>
+    {%- include header.html -%}
+
+    <main class="page-content bg-white" aria-label="Content">
+        <div class="wrapper">
+            <div id="PS">
+                <div id="PS-img" class="">
+                    <img src="/images/portrait2.png" class="rounded-lg" alt="self-portrait">
+                </div>
+                <div id="PS-doc">
+                    <section>
+                        <h1>a description of Don Lee.</h1>
+                        <p>personal statement</p>
+                        <p>some more descriptions of the personality - passion, interests</p>
+                        <p>ambitions perhaps</p>
+                    </section>
+                    <hr>
+                    <section>
+                        <h1>Contact Details</h1>
+                        <p>Email: don_lee@me.com</p>
+                        <p>we_chat: don_ald</p>
+                        <a href="#" class="btn-secondary">Download Resume</a>
+                    </section>
+                </div>
+            </div>
+
+        </div>
+            <div class="mt-5 text-align-center rounded-sm" id="work">
+                <h1 class="border-btm">My Latest Work</h1 class="border-btm">
+                <p>---- on going work ----</p>
+                <ul id="cardBoard" class="card-board">
+                    <li class="card">
+                        <div class="card-img">
+                            <img src="/images/gallery-example-1.jpg" alt="">
+                        </div>
+                        <h2 class="mt-3">Metta Forum</h2>
+                        <p>descriptions of the project</p>
+                        <p>descriptions of the project</p>
+                    </li>
+                    <li class="card">
+                        <div class="card-img">
+                            <img src="/images/gallery-example-1.jpg" alt="">
+                        </div>
+                        <h2 class="mt-3">Learning Logs</h2>
+                        <p>descriptions of the project</p>
+                        <p>descriptions of the project</p>
+                    </li>
+                    <li class="card">
+                        <div class="card-img">
+                            <img src="/images/gallery-example-1.jpg" alt="">
+                        </div>
+                        <h2 class="mt-3">VA Retail Website</h2>
+                        <p>descriptions of the project</p>
+                        <p>descriptions of the project</p>
+                    </li>
+                    <li class="card">
+                        <div class="card-img">
+                            <img src="/images/gallery-example-1.jpg" alt="">
+                        </div>
+                        <h2 class="mt-3">Donnelee.com</h2>
+                        <p>descriptions of the project</p>
+                        <p>descriptions of the project</p>
+                    </li>
+                    <li class="card">
+                        <div class="card-img">
+                            <img src="/images/gallery-example-1.jpg" alt="">
+                        </div>
+                        <h2 class="mt-3">Web Crawling</h2>
+                        <p>descriptions of the project</p>
+                        <p>descriptions of the project</p>
+                    </li>
+                    <li class="card">
+                        <div class="card-img">
+                            <img src="/images/gallery-example-1.jpg" alt="">
+                        </div>
+                        <h2 class="mt-3">Data Visualisation</h2>
+                        <p>descriptions of the project</p>
+                        <p>descriptions of the project</p>
+                    </li>
+                </ul>
+            </div>
+
+            <section class="mt-5">
+
+                <h2>Experience</h2>
+                <ul>
+                    <li>
+                        ## 2000-2010
+                        ipsum lorum .....</li>
+                    <li>
+                        ## 2010-2020
+                        ipsum lorum .....</li>
+                </ul>
+            </section>
+
+            <section class="mt-5">
+                <h2>Education</h2>
+                <ul>
+                    <li>
+                        ## 2000-2010
+                        ipsum lorum .....</li>
+                    <li>
+                        ## 2010-2020
+                        ipsum lorum .....</li>
+                </ul>
+
+            </section>
+
+
+    </main>
+
+    {%- include footer.html -%}
+
+</body>
+
+<script src="/assets/js/landing.js"></script>
+
+</html>
