@@ -1,26 +1,25 @@
 ---
 layout: post
 title:  "Daily Notes: Retail Website in Russian"
-date:   2020-01-26 10:50:17 +0800
+date:   2020-02-04 10:50:17 +0800
 categories: Daily Notes
 ---
 
-# Django:
-
+## Django:
 ---
-## templates builtins!!!
+### templates builtins!!!
 very useful [**template shortcuts, tags and many more...**](https://docs.djangoproject.com/en/3.0/ref/templates/builtins/)
 
 
 
-## Class based views: Generic VIEWS
+### Class based views: Generic VIEWS
 learning source: 
 [codingforentrepreneurs](https://www.codingforentrepreneurs.com/projects/class-based-views/handling-exceptions-objects)
 [generic views official documentation](https://docs.djangoproject.com/en/3.0/ref/class-based-views/generic-display/)
 
 
 
-## to iterate through a folder
+### to iterate through a folder
 [StackO: iterate through a static image folder in django](https://stackoverflow.com/questions/37270170/iterate-through-a-static-image-folder-in-django):
 > This isn't something Django has built in. But Django is just Python, and you can use normal Python file functions to get your list in the view:
 > ```python
@@ -29,7 +28,7 @@ learning source:
 
 
 
-## filter in queryset
+### filter in queryset
 When you know what to look for:
 `category_handbags = Category.objects.filter(name='Handbags')`
 furthur reading: [Database Functions](https://docs.djangoproject.com/en/3.0/ref/models/database-functions/)
@@ -57,25 +56,22 @@ furthur reading: [Database Functions](https://docs.djangoproject.com/en/3.0/ref/
 
 
 
-## `categories.count()` vs `len(categories)`  
+### `categories.count()` vs `len(categories)`  
 `len()` loads all the data in memory then do the counting  
 `count()` is normally faster when the data is not pre loaded
 be careful not to count a queryset manager like `categories.first().count()` will prompt `AttributeError`; however, `categories.first().subcategory_set.count()` will tell you the number of its subcategories correctly and it's the same as `len(categories.first().subcategory_set.all())`, as you can see, ALL of the subcategories are read to count the length.
 
 
-# Django - Images:
-
+## Django - Images:
 ---
-
-
-## ImageField
+### ImageField
 To add `ImageField` in a model and to load the image in the database onto your web:
 ref: [William Vincent](https://wsvincent.com/django-image-uploads/)
 ref: [GeeksforGeeks](https://www.geeksforgeeks.org/imagefield-django-models/)
 
 
 
-## uploaded images in wrong orientation:  
+### uploaded images in wrong orientation:  
 photos taken by phones have this problem sometimes, the [post](https://medium.com/@giovanni_cortes/rotate-image-in-django-when-saved-in-a-model-8fd98aac8f2a) by Giovanni solved the problem:  
 ```python
 from django.db.models.signals import post_save
@@ -133,12 +129,12 @@ def update_image(sender, instance, **kwargs):
 ```
 furture reading: [FIX UPLOADED IMAGES IN PYTHON WEBAPPS](https://www.lfchosting.com/fix-uploaded-images-python-webapps/)
 
-## image files in image field deleted but the file remains in the MEDIA foler
+### image files in image field deleted but the file remains in the MEDIA foler
 [Cleanup Files (and Images) On Model Delete in Django](https://timonweb.com/posts/cleanup-files-and-images-on-model-delete-in-django/)
 
 
 
-### ref: Online Retail websites
+#### ref: Online Retail websites
 * [asos](https://www.asos.com/women/): most referenced in item displaying style, categorisation filtering, most responsive
 * [LOUIS VUITTON](https://us.louisvuitton.com/eng-us/homepage): most elegant in wording and minimalistic in styling
 * [BOTTEGA VENETA](https://www.bottegaveneta.com/us): not responsive enough on laptop
@@ -147,9 +143,9 @@ furture reading: [FIX UPLOADED IMAGES IN PYTHON WEBAPPS](https://www.lfchosting.
 
 
 
-# django-bootstrap4
-
-## containers, row and columns  
+## django-bootstrap4
+---
+### containers, row and columns  
 containers and grid [examples](https://getbootstrap.com/docs/4.4/examples/grid/#containers)  
 `col-sm-12`: when page is 'small' width, occupy 12 columns  
 `col-md-6`: when page is 'medium' width, occupy 6 columns  
@@ -158,7 +154,7 @@ containers and grid [examples](https://getbootstrap.com/docs/4.4/examples/grid/#
 
 `col-md-auto`: when page is 'medium' width, occupy whatever columns remain  
 
-## Default grid settings: [docs/4.4/layout/grid](https://getbootstrap.com/docs/4.4/layout/grid/)
+### Default grid settings: [docs/4.4/layout/grid](https://getbootstrap.com/docs/4.4/layout/grid/)
 
 ```css
 $grid-columns:      12;
@@ -182,12 +178,12 @@ $container-max-widths: (
 
 
 
-# Simply Python:
+## Simply Python:
 
 ---
 
 
-## to iterate through a dictionary:  
+### to iterate through a dictionary:  
 #### `dict.keys()` method and `dict.items()` method  
 ```python
 # using dict.keys() method
