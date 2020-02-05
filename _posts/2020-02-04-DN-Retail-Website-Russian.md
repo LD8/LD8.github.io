@@ -81,13 +81,11 @@ from django.db import models
 import os
 
 class Item(models.Model):
-    ...
-    image_1 = models.ImageField(upload_to='items/')
-    image_2 = models.ImageField(upload_to='items/', blank=True)
-    image_3 = models.ImageField(upload_to='items/', blank=True)
-    image_4 = models.ImageField(upload_to='items/', blank=True)
-    image_5 = models.ImageField(upload_to='items/', blank=True)
-    ...
+    name = ...
+    
+class ItemImage(models.Model):
+  	item = models.ForeignKey(Item)
+    image = models.ImageField(upload_to='itemimages', null=True, blank=True)
 
 # solves the problem that uploaded images are in wrong orientation
 def rotate_image(filepath):
@@ -111,20 +109,12 @@ def rotate_image(filepath):
         pass
 
 
-@receiver(post_save, sender=Item, dispatch_uid="update_image_item")
+@receiver(post_save, sender=ItemImage, dispatch_uid="update_image_item")
 def update_image(sender, instance, **kwargs):
-    dic = {
-        'image_1': instance.image_1,
-        'image_2': instance.image_2,
-        'image_3': instance.image_3,
-        'image_4': instance.image_4,
-        'image_5': instance.image_5,
-    }
-    for k, instanceImage in dic.items():
-        if instanceImage:
-            BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-            fullpath = BASE_DIR + instanceImage.url
-            rotate_image(fullpath)
+  if instance.image:
+    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    fullpath = BASE_DIR + instanc.image.url
+    rotate_image(fullpath)
 
 ```
 furture reading: [FIX UPLOADED IMAGES IN PYTHON WEBAPPS](https://www.lfchosting.com/fix-uploaded-images-python-webapps/)
