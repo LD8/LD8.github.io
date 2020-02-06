@@ -38,7 +38,9 @@ $ source venv/bin/activate
     @admin.register(Author, Reader, Editor, site=custom_admin_site)
     class AuthorAdmin(admin.ModelAdmin):
     	pass
-  ```
-	
-	
+    ```
+    
+  - Create [InlineModelAdmin](https://docs.djangoproject.com/en/3.0/ref/contrib/admin/#inlinemodeladmin-objects) object to display extra info on a model in admin add page.
+
+
 
