@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Daily Notes: Retail Website in Russian P4"
-date:   2020-02-08 10:316:17 +0800
+date:   2020-02-08 10:31:17 +0800
 categories: Daily Notes
 ---
 
