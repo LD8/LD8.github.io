@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Daily Notes: Retail Website in Russian"
+title:  "Daily Notes: Retail Website in Russian P3"
 date:   2020-02-07 17:30:17 +0800
 categories: Daily Notes
 ---
