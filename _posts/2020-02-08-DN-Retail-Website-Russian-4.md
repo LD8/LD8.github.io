@@ -9,9 +9,9 @@ categories: Daily Notes
 ---
 ### template {{forloop.counter0}}
 ```html
-{% for image in item.itemimage_set.all %}
+{\% for image in item.itemimage_set.all \%}
 <li data-target="#item{{item.pk}}Carousel" data-slide-to="{{forloop.counter0}}"></li>
-{% endfor %}
+{\% endfor \%}
 ```
 `forloop.counter0` is 0-indexed
 `forloop.counter` is 1-indexed
