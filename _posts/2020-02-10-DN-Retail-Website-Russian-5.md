@@ -7,15 +7,11 @@ categories: Daily Notes
 
 ## Django:
 ---
-### {\% verbatim %\}
-you can use {\% verbatim %\} to stop template tags from laoding:
-{% verbatim %}
-{% verbatim %}
-	{% something here won't be effective %}
-		{% for q in queryset %}
-		{% endfor %}
-	{% endverbatim %}
-{% endverbatim %}
+### ForeignKey.on_delete
+`ForeignKey` takes in `on_delete` argument to deal with the situation where the `ForeignKey` object is being deleted. The value of `on_delete` argument represents this behaviour. There are 3 options (In the examples below, `Item` model has `Category` as a `ForeignKey`):
+* `on_delete=models.CASCADE` : deleting a foreign object, i.e. a `category`, will automatically delete all of the `item`s under that category
+* `on_delete=models.PROTECT`: deleteing a foreign object, i.e. a `category`, will automatically prompt 'Can Not Delete' if there's `item`s under that category, And the `item`s will be listed
+* `on_delete=models.SET_NULL`: deleteing a foreign object, i.e. a `category`, will set this foreign key to `Null` in all of the `item`s originally under that category.
 
 
 
