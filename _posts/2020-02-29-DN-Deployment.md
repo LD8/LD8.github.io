@@ -82,6 +82,8 @@ postgres=# \du
 # to delete a database
 postgres=# DROP DATABASE database_name;
 ```
+**Some useful sql commands** [here](https://www.postgresqltutorial.com/psql-commands/)
+
 *Note*: it doesn't matter it's capital letters or not when you setting up, the database seems only understand lowercase letters, they will convert uppercase to lowercase anyway... However, the password is case sensitive...
 
 ---
@@ -101,10 +103,11 @@ Do not forget to `pip freeze > requirements.txt` before commiting your project t
 	**Note**: in venv, you can use pip instead of pip3, python instead of python3
 8. `(venv)$ pip install -r requirements.txt` install all packages
 9. `(venv)$ nano project/foler/settings.py` adjust a few things in settings:
+	
 	* **Note**: Of course you can choose to edit the file locally and commit to GitHub, then pull it to your server, the important things are the following:
 	* `STATIC_ROOT = os.path.join(BASE_DIR, 'static/')` Normally you wouldn't have to set this up locally when developing
 	* change the database from `sqlite3` to `postgres`
-		```python
+   	```python
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -339,7 +342,7 @@ After Gunicorn is set, Nginx is to be configured to pass traffic to the process
 
 ---
 
-**[SSL with _Let's Certbot_ on _Nginx_](https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-18-04)**
+## **[SSL with _Let's Certbot_ on _Nginx_](https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-18-04)**
 
 ```bash
 # installation
@@ -406,6 +409,12 @@ Further reading: [Certbot doc](https://certbot.eff.org/docs/)
 ---
 
 **Troubleshooting Nginx and Gunicorn**
+
+Near the end of [this post](https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu-18-04), there's a session of troubleshooting.
+
+---
+
+
 
 
 
