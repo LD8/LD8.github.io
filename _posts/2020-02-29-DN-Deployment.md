@@ -124,22 +124,34 @@ Do not forget to `pip freeze > requirements.txt` before commiting your project t
 10. setting up `SECRET_KEY` (followed [this blog](https://help.pythonanywhere.com/pages/environment-variables-for-web-apps/))
 	* `$ pip install python-dotenv` or simply included in your `requirements.txt` file: `echo python-doctenv >> requirements.txt` before pulling the repo
 	* on server: 
-	``bash
-	$ cd ~/project_directory/`
-	$ echo "export SECRET_KEY=sekritvalue" >> .env
-	```
+        ```bash
+        $ cd ~/project_directory/`
+        $ echo "export SECRET_KEY=sekritvalue" >> .env
+        ```
+        You can edit `.env` file and adding more environment variable, or you can use commandline like so:
+        ```bash
+        $ export CAPITAL_NAME=true
+        # it doesn't matter whether you add quotation marks for the value when you export, even when they are strings, the value 'true' will always be a string
+
+        # if you export directly in command, be careful of ! as it needs to be excaped \!
+        $ explort PASSWD_DB = something\!and@#others
+        ```
+        But I would recommand to use `.env` file if you set it up already. Keep everything in one place.
+        
 	* in `wsgi.py` file in the same directory of `settings.py`, as well as `manage.py` file
-	​```python
-	import os
-	from dotenv import load_dotenv
-	project_folder = os.path.expanduser('~/my-project-dir')  # adjust as appropriate
-	load_dotenv(os.path.join(project_folder, '.env'))
-	```
+        ```python
+        import os
+        from dotenv import load_dotenv
+        project_folder = os.path.expanduser('~/my-project-dir')  # adjust as appropriate
+        load_dotenv(os.path.join(project_folder, '.env'))
+        ```
+        Be very careful the path of the folder, or you won't get the correct env variable. A way to check whether you have the variable in your environment is go to `python manage.py shell` and `import os`, like below:
+
 	* finally in `settings.py`
-	```python
-	import os
-	SECRET_KEY = os.getenv("SECRET_KEY")
-	```
+        ```python
+        import os
+        SECRET_KEY = os.getenv("SECRET_KEY")
+        ```
 	
 11. `$ python manage.py migrate` no need to `make migrations` in production
 
