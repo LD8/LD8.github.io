@@ -25,8 +25,18 @@ categories: Daily Notes
     $ rsync -avz -e ssh va-bout:/remote_dir /local_dir
     # '-e' is essential for creating an ssh connection
     ```
- 
 ---
+# Ubuntu Commands
+* ### uninstall a package and remove its dependencies completely
+    ```bash
+    $ sudo apt-get purge --auto-remove packagename
+    ```
+* ### check out the packages installed
+    ```bash
+    $ dpkg --list
+    ```
+* ### 
+--- 
 
 ## [The Many Uses of Rsync](https://mediatemple.net/blog/tips/many-uses-rsync/)
 >It’s faster than scp (Secure Copy) because rsync uses remote-update protocol which allows to transfer just the differences between two sets of files. First time, it copies the whole content of a file or a directory from source to destination but from next time, it copies only the changed blocks and bytes to the destination.

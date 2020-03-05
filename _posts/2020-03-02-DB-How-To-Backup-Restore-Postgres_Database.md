@@ -1,10 +1,10 @@
 ---
 layout: post
-title:  "Django Deployment: How to Backup and Restore Postgres DATABASE"
-categories: Django Deployment
+title:  "DATABASE: How to Backup and Restore Postgres DATABASE"
+categories: Database
 ---
 # Objectives
-Two databases were setup on server, `sqlite` is for development, `PostgreSQL` is for production. It is probably a stupid idea in the first place: because of an environment variable error, the database on the server was still using `sqlite` and user has been uploading data (files and pictures) for a while. I need to change the database to `PostgreSQL` on the server without losing the data.
+Two databases were setup on server, `sqlite` is for development, `PostgreSQL` is for production. It is probably a stupid idea in the first place: because of an environment variable error, `sqlite` was still being used in production and user has been uploading data (files and pictures) for a while. I now need to change the database to `PostgreSQL` on the server without losing the data.
 
 ---
 
@@ -27,7 +27,9 @@ Two databases were setup on server, `sqlite` is for development, `PostgreSQL` is
     * restore data and runserver locally, see if data applied
     * move on to phase II: On server - migrating data from sqlite to Postgresql
 * Tools:
-    * [PGloader](https://pgloader.readthedocs.io/en/latest/intro.html)
+    * [PostgreSQL Database](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads) install on Mac OS
+    * [pgAdmin](https://www.pgadmin.org/) install on Mac OS
+    * [pgloader](https://pgloader.readthedocs.io/en/latest/intro.html)
 
 ---
 
@@ -69,6 +71,10 @@ total size is 12235494  speedup is 1.00
 # Local: Restore
 ## Installation:
 I used the django default `sqlite3` for development, therefore, `PostgreSQL` is not installed locally. The process of this installation is different on Mac compared to that on Ubuntu:
+
+Download on Mac OS:
+* [PostgreSQL Database](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads)
+* [pgAdmin](https://www.pgadmin.org/): a PostgresSQL tool for database management
 ```bash
 # Mac OS 10.15.3
 (venv)$ brew install postgresql
@@ -119,16 +125,22 @@ DATABASES = {
 }
 ```
 
+Reference articles:
+* pgloader official doc: [Migrating a ZSQLite database to PostgreSQL](https://pgloader.readthedocs.io/en/latest/ref/sqlite.html#sqlite-database-source-specification-from)
+* 
+
+---
+
+# Phase II: On server - migrating data from sqlite to Postgresql
+
+something to do in phase II goes here
+
+---
 
 
 
 
 
-
-
-
-
-[pgAdmin](https://www.pgadmin.org/): a PostgresSQL tool for database management
 
 [SameSite cookies explained](https://web.dev/samesite-cookies-explained/)
 
