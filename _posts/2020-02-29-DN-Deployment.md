@@ -84,7 +84,7 @@ postgres=> DROP DATABASE database_name;
 ```
 **Some useful sql commands** [here](https://www.postgresqltutorial.com/psql-commands/)
 
-*Note*: it doesn't matter it's capital letters or not when you setting up, the database seems only understand lowercase letters, they will convert uppercase to lowercase anyway... However, the password is case sensitive...
+*Note*: it doesn't matter whether you set your database name to capital letters or not when you setting up, they will convert uppercase to lowercase anyway... However, the password is case sensitive...
 
 ---
 
@@ -126,15 +126,16 @@ Do not forget to `pip freeze > requirements.txt` before commiting your project t
 	* on server: 
         ```bash
         $ cd ~/project_directory/`
-        $ echo "export SECRET_KEY=sekritvalue" >> .env
+        $ echo "export SECRET_KEY=seekratevalue" > .env
         ```
         You can edit `.env` file and adding more environment variable, or you can use commandline like so:
         ```bash
+        # you can also directly export one-off environment variable directly on commandline
         $ export CAPITAL_NAME=true
         # it doesn't matter whether you add quotation marks for the value when you export, even when they are strings, the value 'true' will always be a string
 
         # if you export directly in command, be careful of ! as it needs to be excaped \!
-        $ explort PASSWD_DB = something\!and@#others
+        $ export PASSWD_DB = something\!and@#others
         ```
         But I would recommand to use `.env` file if you set it up already. Keep everything in one place.
         

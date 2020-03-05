@@ -29,7 +29,17 @@ You can always check the [manual](https://www.postgresql.org/docs/12/index.html)
     $ psql
     db_name=#
     ```
-
+* ## quick command in Ubuntu
+    ```bash
+    $ sudo -u postgres psql -c "ALTER USER postgres PASSWORD 'postgres';"
+    $ sudo -u postgres psql -c "CREATE DATABASE testdb;"
+    ```
+* ## start and stop postgresql service
+    ```bash
+    $ sudo service postgresql start
+    
+    $ sudo service postgresql stop
+    ```
 * ## [createdb](https://www.postgresql.org/docs/12/app-createdb.html) and [dropdb](https://www.postgresql.org/docs/12/app-dropdb.html) 
     ```bash
     $ createdb db_name
