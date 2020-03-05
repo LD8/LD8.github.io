@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Django Deployment: Translation in Deployment"
+title:  "Django Deployment: Translation Error in Deployment"
 categories: Django Deployment
 ---
 
@@ -8,7 +8,7 @@ categories: Django Deployment
 
 When deploying my django app, all the translation works perfectly locally. I translated everything in `django.po` and `python manage.py compilemessages` locally. However, it doesn't work somehow on server. Only part of the website is translated on VPS.
 
-* At first, Ubuntu 18.4 prompt error when I tried to compile:
+* ### At first, Ubuntu 18.4 prompt error when I tried to compile:
 
   ```bash
   (venv)$ django-admin makemessages -l ru -i venv
@@ -23,11 +23,10 @@ When deploying my django app, all the translation works perfectly locally. I tra
   ```
 
   
-
-* It turned out I needed to restart the server:
+* ### It turned out I needed to restart the server:
 
   ```bash
   $ sudo service gunicorn restart
   ```
 
-  Then everything will be applied, and it only takes a second!
+## Now everything will be applied, and it only takes a second!

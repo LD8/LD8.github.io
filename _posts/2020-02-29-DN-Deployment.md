@@ -53,34 +53,34 @@ categories: Daily Notes
 $ sudo -u postgres psql
 
 # create a database for the project:
-postgres=# CREATE DATABASE myproject;
+postgres=> CREATE DATABASE myproject;
 
 # create a db user for the project:
-postgres=# CREATE USER myprojectuser WITH PASSWORD 'password';
+postgres=> CREATE USER myprojectuser WITH PASSWORD 'password';
 
 
 # modify a few connection parameters for the user created
 
 # 1. setting the default encoding to UTF-8
-postgres=# ALTER ROLE myprojectuser SET client_encoding TO 'utf8';
+postgres=> ALTER ROLE myprojectuser SET client_encoding TO 'utf8';
 
 # 2. setting the default transaction isolation scheme to “read committed”, which blocks reads from uncommitted transactions
-postgres=# ALTER ROLE myprojectuser SET default_transaction_isolation TO 'read committed';
+postgres=> ALTER ROLE myprojectuser SET default_transaction_isolation TO 'read committed';
 
 # 3. setting the timezone. By default, our Django projects will be set to use UTC
-postgres=# ALTER ROLE myprojectuser SET timezone TO 'UTC';
+postgres=> ALTER ROLE myprojectuser SET timezone TO 'UTC';
 
 # give our new user access to administer our new database:
-postgres=# GRANT ALL PRIVILEGES ON DATABASE myproject TO myprojectuser;
+postgres=> GRANT ALL PRIVILEGES ON DATABASE myproject TO myprojectuser;
 
 # quit PostgresSQL prompt:
-postgres=# \q
+postgres=> \q
 
 # useful command - see list of roles:
-postgres=# \du
+postgres=> \du
 
 # to delete a database
-postgres=# DROP DATABASE database_name;
+postgres=> DROP DATABASE database_name;
 ```
 **Some useful sql commands** [here](https://www.postgresqltutorial.com/psql-commands/)
 

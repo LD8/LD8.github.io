@@ -22,7 +22,7 @@ categories: Daily Notes
 * RSYNC a remote file to local
     ```bash
     # rsync a remote file to local
-    $ rsync -avz -e ssh va-bout:/remote_dir /local_dir
+    $ rsync -avz -e ssh user@ip_add:~/remote_dir/file local_dir/
     # '-e' is essential for creating an ssh connection
     ```
 ---
