@@ -91,20 +91,26 @@ However:
 ### TROUBLESHOOTING:
 You will likely to run into many problems and errors on the way, but don't worry, read them and analyze them, google and stackoverflow, here's a few:
 
-* >UnicodeEncodeError: 'latin-1' codec can't encode characters in position 0-2: ordinal not in range(256)
+* >UnicodeEncodeError: 'latin-1' codec can't encode characters in position 0-2: ordinal not in range(256)  
 
-    FIX 'UTF-8' IN UBUNTU  
-    The system default (LANG=en_US) didn't support cyrillic at all, so:
-    ```bash
-    $ export LC_ALL=en_US.UTF-8
-    $ export LANG=en_US.UTF-8
-    $ export LANGUAGE=en_US.UTF-8
-    ```
-    ##### Thanks for [this post by perlgeek](https://perlgeek.de/en/article/set-up-a-clean-utf8-environment)
+    This happened when I tried to `loaddata` (step 6). Step 3 is the fix.
 
 * >character with byte sequence 0xd0 0x90 in encoding "UTF8" has no equivalent in encoding "LATIN1"
 
-    I thought this might be the database encoding (HENCE STEP 3), it might be the database but just as well as the system LANGUAGE setting... There's no way to find out now. But bear in mind that if you need support other languages, better use 'utf-8' EVERYWHERE!!!
+    This is caused by the system LANGUAGE setting. The system can not recognize/find the cyrillic charactors in "LATIN1" encoding/'library'. If you need to support other languages, use 'utf-8' EVERYWHERE!!!
+
+    QUICK FIX LANG = UTF-8 IN UBUNTU  
+    The system default (LANG=en_US) didn't support cyrillic at all, so try the command below and logout login again:
+    ```bash
+    # if you want to generate say Russian cyrillic language locale in UTF-8
+    $ sudo locale-gen "ru_RU.UTF-8"
+    # also try this to permanently change all of your locale to en_US.UTF-8
+    $ sudo update-locale LANG="en_US.UTF-8" LANGUAGE="en_US.UTF-8"
+
+    $ locale
+    # run locale see if everything equals to 'en_US.UTF-8'
+    ```
+    ##### Thanks for [this post by perlgeek](https://perlgeek.de/en/article/set-up-a-clean-utf8-environment)
 
 * >users.models.DoesNotExist: Problem installing fixture '...' matching query does not exist
 

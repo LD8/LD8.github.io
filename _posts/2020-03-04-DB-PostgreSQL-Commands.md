@@ -22,12 +22,12 @@ You can always check the [manual](https://www.postgresql.org/docs/12/index.html)
     ```bash
     $ sudo -u postgres psql db_name
     db_name=#
-    # 'sudo -u postgres' <-- this part is omitted on mac completely
+    # 'sudo -u postgres' <-- means command on behalf of superuser 'postgres'
 
-    # and the above command is the same as:
-    $ sudo su - db_name
+    # you can also switch to superuser like this:
+    $ sudo su - postgres
     $ psql
-    db_name=#
+    postgres=#
     ```
 * ## quick command in Ubuntu
     ```bash

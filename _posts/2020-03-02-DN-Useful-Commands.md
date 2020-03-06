@@ -35,7 +35,10 @@ categories: Daily Notes
     ```bash
     $ dpkg --list
     ```
-* ### 
+* ### switch user
+    ```bash
+    $ su username
+    ```
 --- 
 
 ## [The Many Uses of Rsync](https://mediatemple.net/blog/tips/many-uses-rsync/)
@@ -77,6 +80,12 @@ $ rsync -avz --remove-source-files "$(date '+%y-%m-%d').tar.gz" user@ip_add:/pat
 * ### **More rsync commands: [checkout this post](https://www.tecmint.com/rsync-local-remote-file-synchronization-commands/)**
 * ### **More rsync flags: [checkout this post](https://www.linuxtechi.com/rsync-command-examples-linux/)** <-- This post documented better with clearer appearance
 
+### locale
+```bash
+$ locale
+
+$ sudo update-locale LANG="en_US.UTF-8" LANGUAGE="en_US.UTF-8"
+```
 ---
 
 
