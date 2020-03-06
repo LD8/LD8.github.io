@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Daily Notes: Django Russian Retail Website Deployment"
-categories: Daily Notes
+title:  "Django Russian Retail Website Deployment"
+categories: Django Deployment
 ---
 
 ## Finally the [Deployment on Ubuntu 18.04](https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu-18-04)
@@ -48,12 +48,14 @@ categories: Daily Notes
 
 **Creating PostgreSQL Database and User**:  
 
-```bash
+```sql
 # Log into an interactive Postgres session by typing:
 $ sudo -u postgres psql
 
 # create a database for the project:
 postgres=> CREATE DATABASE myproject;
+# careful here, if you need utf-8 encoding, you have to specify it:
+postgres=> CREATE DATABASE new_db_name WITH ENCODING='UTF8' LC_CTYPE='ru_RU.UTF-8' LC_COLLATE='ru_RU.UTF-8' OWNER=postgres TEMPLATE=template0
 
 # create a db user for the project:
 postgres=> CREATE USER myprojectuser WITH PASSWORD 'password';

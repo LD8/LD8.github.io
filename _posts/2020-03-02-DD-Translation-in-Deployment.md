@@ -12,6 +12,7 @@ When deploying my django app, all the translation works perfectly locally. I tra
 
   ```bash
   (venv)$ django-admin makemessages -l ru -i venv
+  # DO NOT forget to ignore virtualenv folder
   (venv)$ django-admin compilemessages
   # CommandError: Can't find msgfmt. Make sure you have GNU gettext tools 0.15 or newer installed.
   
@@ -21,7 +22,7 @@ When deploying my django app, all the translation works perfectly locally. I tra
   
   # Then you can run command compilemessages, however, the website is still partly in English, didn't help... so what went wrong?
   ```
-
+* ### DO NOT forget to delete the `fuzzy` tag in `.po` file, for everything to be properly displayed/translated
   
 * ### It turned out I needed to restart the server:
 

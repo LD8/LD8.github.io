@@ -25,21 +25,26 @@ categories: Daily Notes
     $ rsync -avz -e ssh user@ip_add:~/remote_dir/file local_dir/
     # '-e' is essential for creating an ssh connection
     ```
----
-# Ubuntu Commands
-* ### uninstall a package and remove its dependencies completely
+
+* useful bash command
     ```bash
-    $ sudo apt-get purge --auto-remove packagename
+    $ whereis python3
+    /usr/bin/python3
     ```
-* ### check out the packages installed
-    ```bash
-    $ dpkg --list
-    ```
-* ### switch user
-    ```bash
-    $ su username
-    ```
+
 --- 
+
+## vim basic
+```bash
+输入：
+i (insert, start editing)
+: w filename （将文章以指定的文件名filename保存）
+: wq (输入「wq」，存盘并退出vim)
+: q! (输入q!， 不存盘强制退出vim)
+```
+
+---
+
 
 ## [The Many Uses of Rsync](https://mediatemple.net/blog/tips/many-uses-rsync/)
 >It’s faster than scp (Secure Copy) because rsync uses remote-update protocol which allows to transfer just the differences between two sets of files. First time, it copies the whole content of a file or a directory from source to destination but from next time, it copies only the changed blocks and bytes to the destination.
