@@ -12,7 +12,7 @@ You are going to witness: backup an SQLite database on the server, then download
     * find and install necessary tools
     * backup database waiting to be transferred remotely
 * Tools: 
-    * [`django-archive`](https://pypi.org/project/django-archive/)==0.1.6 easy to use and setup
+    * [`django-archive`](https://django-archive.readthedocs.io/en/latest/)==0.1.6 easy to use and setup
     * <s>[`django-dbbackup`](https://pypi.org/project/django-dbbackup/)==3.2.0</s> couldn't setup backup folder path correctly somehow
 
 

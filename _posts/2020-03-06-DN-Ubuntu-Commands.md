@@ -24,9 +24,10 @@ categories: Daily Notes
     ```bash
     $ ls <file_dir> -la
     ```
-* ### 
+* ### check system timezone
     ```bash
-
+    $ cat /etc/timezone
+    Europe/Moscow
     ```
 * ### 
     ```bash

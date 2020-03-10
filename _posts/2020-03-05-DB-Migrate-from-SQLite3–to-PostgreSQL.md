@@ -15,7 +15,7 @@ Two databases were setup on server, `sqlite` is for development, `PostgreSQL` is
     * find and install necessary tools
     * backup database waiting to be transferred remotely
 * Tools: 
-    * [`django-archive`](https://pypi.org/project/django-archive/)==0.1.6 easy to use and setup, for backing up database as well as media files
+    * [`django-archive`](https://django-archive.readthedocs.io/en/latest/)==0.1.6 easy to use and setup, for backing up database as well as media files
     * <s>[`django-dbbackup`](https://pypi.org/project/django-dbbackup/)==3.2.0</s> couldn't setup backup folder path correctly somehow
     * <s>[pgloader](https://pgloader.readthedocs.io/en/latest/intro.html)</s> Actually didn't get you use it
 
@@ -57,7 +57,7 @@ postgres=> CREATE DATABASE new_db_name WITH ENCODING='UTF8' LC_CTYPE='ru_RU.UTF-
 # 2. you have to specify 'template0' if your template0 and template1 encoding is not 'UTF8'
 
 postgres=> GRANT ALL PRIVILEGES ON DATABASE myproject TO myprojectuser;
-# don't forget to grant access before exiting the psql shell
+# don not forget to grant access before exiting the psql shell
 # you can use \l to check existing databases
 postgres=> \l
 postgres=> \q

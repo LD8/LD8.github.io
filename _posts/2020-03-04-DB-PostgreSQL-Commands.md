@@ -29,6 +29,11 @@ You can always check the [manual](https://www.postgresql.org/docs/12/index.html)
     $ psql
     postgres=#
     ```
+* ## change postgres password
+    ```bash
+    $ sudo -u postgres psql
+    postgres=> \password
+    ```
 * ## quick command in Ubuntu
     ```bash
     $ sudo -u postgres psql -c "ALTER USER postgres PASSWORD 'postgres';"

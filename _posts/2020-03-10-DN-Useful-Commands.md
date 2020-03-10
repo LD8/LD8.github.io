@@ -18,20 +18,40 @@ categories: Daily Notes
     ```bash
     # create a directory with this date:
     $ mkdir "$(date '+%Y-%m-%d')"
+    # dir name: 2020-03-10
+    $ mkdir "$(date '+%Y-%m-%d--%H-%M-%S')"
+    # dir name: 2020-03-10--11-03-01
+
+    $ mkdir "$(TZ=UTC-8  date '+%Y-%m-%d--%H-%M-%S')"
+    # dir name: 2020-03-10--13-10-59 (Beijing time)
+    $ mkdir "$(TZ=UTC-0  date '+%Y-%m-%d--%H-%M-%S')"
+    # dir name: 2020-03-10--05-11-05 (Greenwich time)
     ```
-* RSYNC a remote file to local
+* RSYNC a remote file to local through pipe
     ```bash
     # rsync a remote file to local
     $ rsync -avz -e ssh user@ip_add:~/remote_dir/file local_dir/
     # '-e' is essential for creating an ssh connection
     ```
 
-* useful bash command
+* Look for files: `whereis` 
     ```bash
     $ whereis python3
     /usr/bin/python3
     ```
 
+* locale
+    ```bash
+    # check your locale setting
+    $ locale
+    # update it
+    $ sudo update-locale LANG="en_US.UTF-8" LANGUAGE="en_US.UTF-8"
+    ```
+
+* make nested dir
+    ```bash
+    $ mkdir -p _backups/_archives
+    ```
 --- 
 
 ## vim basic
@@ -77,34 +97,5 @@ $ rsync -avz --remove-source-files path/to/backup1 user@ip_add:/path/to/backups/
 $ rsync -avz --remove-source-files "$(date '+%y-%m-%d').tar.gz" user@ip_add:/path/to/backups/
 
 ```
-### **crontab -e**
-```nano
-* * * * * rsync -avz path/to/directory1/ user@ip_add:/path/to/directory2/
-```
-
 * ### **More rsync commands: [checkout this post](https://www.tecmint.com/rsync-local-remote-file-synchronization-commands/)**
 * ### **More rsync flags: [checkout this post](https://www.linuxtechi.com/rsync-command-examples-linux/)** <-- This post documented better with clearer appearance
-
-### locale
-```bash
-$ locale
-
-$ sudo update-locale LANG="en_US.UTF-8" LANGUAGE="en_US.UTF-8"
-```
----
-
-
-```bash
-# cron tab to backup
-
-# first create backup using django-archive
-# on server
-$ cd /home/don/VA-boutique/
-$ source venv/bin/activate
-(venv)$ python manage.py archive
-
-# pull backup from source weekly
-$ mkdir "$(date '+%Y-%m-%d')"
-$ rsync -avz -e ssh --progress va-boutique:/home/don/VA-boutique/var/backup "$(date '+%Y-%m-%d')"/
-```
-
