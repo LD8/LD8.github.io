@@ -49,18 +49,18 @@ DATABASES = {
 Some of the data is written in Russian (Cyrillic), ***wrong encoding of the database*** can be disastrous! Apparently, ***you can only set the encoding of a database when you create it. It can not be altered afterwards.*** 
 
 Here's how to create a database support all language input ==>
-```sql
+```postgres
 $ sudo -u postgres psql
-postgres=> CREATE DATABASE new_db_name WITH ENCODING='UTF8' LC_CTYPE='ru_RU.UTF-8' LC_COLLATE='ru_RU.UTF-8' OWNER=postgres TEMPLATE=template0;
+postgres=# CREATE DATABASE new_db_name WITH ENCODING='UTF8' LC_CTYPE='ru_RU.UTF-8' LC_COLLATE='ru_RU.UTF-8' OWNER=postgres TEMPLATE=template0;
 # note: 
 # 1. I need Russian locale encoding: 'ru_RU.UTF-8'; 
 # 2. you have to specify 'template0' if your template0 and template1 encoding is not 'UTF8'
 
-postgres=> GRANT ALL PRIVILEGES ON DATABASE myproject TO myprojectuser;
+postgres=# GRANT ALL PRIVILEGES ON DATABASE myproject TO myprojectuser;
 # don not forget to grant access before exiting the psql shell
 # you can use \l to check existing databases
-postgres=> \l
-postgres=> \q
+postgres=# \l
+postgres=# \q
 ```
 check out [CREATE DATABASE](https://www.postgresql.org/docs/9.0/sql-createdatabase.html) for more
 

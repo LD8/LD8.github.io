@@ -34,6 +34,19 @@ categories: Daily Notes
     # '-e' is essential for creating an ssh connection
     ```
 
+* check mac environment variable
+    ```bash
+    $ printenv
+    ```
+    check a specific variable
+    ```bash
+    $ echo $variable_name
+    ```
+    If setting more permanent environment variables:
+    >For system-wide operations, it should be in `/etc/profile`  
+    >For user based operations, it should be in `~/.bash_profile`  
+    >For non-login interactive shells, it should be in `~/.bashrc`   
+    >For better understanding, you better check out this: [Unix Introduction — Shell](https://medium.com/@youngstone89/unix-introduction-shell-980212852897)  
 * Look for files: `whereis` 
     ```bash
     $ whereis python3

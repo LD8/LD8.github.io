@@ -12,6 +12,14 @@ categories: Django Deployment
 
 > It does not make any difference, because when you use `os.environ.get()` you will get a string, rather than a boolean value, you can consider using django environ instead to parse boolean value directly from environment variable. 
 
+
+# Where should env var live
+If setting a permanent environment variable:
+>For system-wide operations, it should be in `/etc/profile`  
+>For user based operations, it should be in `~/.bash_profile`  
+>For non-login interactive shells, it should be in `~/.bashrc`   
+>For better understanding, you better check out this: [Unix Introduction — Shell](https://medium.com/@youngstone89/unix-introduction-shell-980212852897)  
+
 # Usage 
 * ## Use environment variables to set which DATABASE to apply locally and on server, 3 steps:
     1. Installation - [django-dotenv](https://pypi.org/project/django-dotenv/): 
