@@ -94,7 +94,7 @@ For now all I have to do is to setup a cron job on server to run `django-archive
 ## So basically, in a word, run this locally every Wednesday:
 Because of the time difference between Moscow and China, better run this after mid-day in Beijing Time:
 ```bash
-$ rsync -avz --progress --remove-source-files -e ssh va-boutique:/home/don/VA-boutique/_backups/_archives/"$(date '+%Y-%m-%d')".tar.bz2 /Users/peiwen_li/Documents/GitHub/VA-boutique/_backups/_archives && ssh va-boutique "pg_dump -U postgres -h localhost vadb" > vadbdump_"$(date '+%Y-%m-%d')" && ssh va-boutique "pg_dump -U postgres -h localhost -C --column-inserts vadb" > vadbdump_"$(date '+%Y-%m-%d')"_inserts
+$ rsync -avz --progress --remove-source-files -e ssh va-boutique:/home/don/VA-boutique/_backups/_archives/"$(date '+%Y-%m-%d')".tar.bz2 /Users/peiwen_li/Documents/GitHub/VA-boutique/_backups/_archives && ssh va-boutique "pg_dump -U postgres -h localhost vadb" > /Users/peiwen_li/Documents/GitHub/VA-boutique/_backups/_pgdump/vadbdump_"$(date '+%Y-%m-%d')" && ssh va-boutique "pg_dump -U postgres -h localhost -C --column-inserts vadb" > /Users/peiwen_li/Documents/GitHub/VA-boutique/_backups/_pgdump/vadbdump_"$(date '+%Y-%m-%d')"_inserts
 ```
 ---
 ---

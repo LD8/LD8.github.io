@@ -25,13 +25,14 @@ Register a heroku account. And then simply follow the instruction on [Heroku.com
 ```bash
 (venv)$ python --version
 Python 3.7.4
-(venv)$ echo 'python 3.7.4' > runtime.txt
+(venv)$ echo 'python-3.7.4' > runtime.txt
 ```
-runtime.txt specifies a python version for Heroku to use for your app. Note that the text in runtime.txt should be a one liner and all in lowercase.
+runtime.txt specifies a python version for Heroku to use for your app. Note that the text in runtime.txt should be a one liner and all in lowercase. DO NOT FORGET THE 
 
 ## settings.py
 ```python
 # Heroku settings
+# Note: this settings of Heroku should go after BASE_DIR delaration
 import django_heroku
 django_heroku.settings(locals())
 
@@ -44,9 +45,10 @@ elif os.environ.get('DEBUG') == 'FALSE':
 ```
 this setting is easy to forget because you probably only need to set up once for each project.
 
+
 ## Procfile
 ```bash
-(venv)$ echo 'web: gunicorn learning_log.wsgi --log-file -' > Procfile
+(venv)$ echo 'web: gunicorn app_name.wsgi --log-file -' > Procfile
 ```
 > This line tells Heroku to use gunicorn as a server and to use the settings in `project_name/wsgi.py` to launch the app. The log-file flag tells Heroku the kinds of events to log.
 
