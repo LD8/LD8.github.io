@@ -24,7 +24,7 @@ const can never be changed
 
 ## naming vars
 
-declare camelCase
+camelCase ONLY
 
 ## use backflash to escape
 
@@ -63,7 +63,7 @@ if a function does not return anything, the return value is 'undefined', meaning
 
 ## scope
 
-vars with the same name: local scope take the precedence
+vars with the same name: var in local scope take the precedence
 
 ## switch() {}
 
@@ -98,8 +98,8 @@ function caseInSwitch(val) {
 - use bracket notation to access properties when property name has _space_ in it
 - use bracket notation to access properties when a variable is in the bracket
 - `delete object.key` to delete prperty
-- replace switch function with a dict/object
-  = `object.hasOwnProperty(Prop)` to check if an object has the property 'Prop'
+- consider to replace a switch function with a dict/object to simplify your code
+- `Object.hasOwnProperty(Prop)` to check if an object has the property 'Prop'
 - an object can be within an array and vice versa
 
 ## while loop
@@ -226,6 +226,20 @@ const sum = function() {
 console.log(sum(1, 2, 3, 4)); // 10 and any number of arguments will be processed
 ```
 
+## Destructuring assignment with Rest Operator
+
+```js
+const source = [1, 2, 3, 4, 5, 6, 7];
+
+function removeFirstTwo(list) {
+  const [, , ...newList] = list;
+
+  return newList;
+}
+
+console.log(removeFirstTwo(source)); // [3,4,5,6,7]
+```
+
 ## Spread Operator to evaluate arrays in-place
 
 ```js
@@ -283,20 +297,6 @@ let a = 8,
 
 console.log(a); // 6
 console.log(b); // 8
-```
-
-## Destructureing assignment with Rest Operator
-
-```js
-const source = [1, 2, 3, 4, 5, 6, 7];
-
-function removeFirstTwo(list) {
-  const [, , ...newList] = list;
-
-  return newList;
-}
-
-console.log(removeFirstTwo(source)); // [3,4,5,6,7]
 ```
 
 ## Destructuring Assignment to pass an Object as a function's params

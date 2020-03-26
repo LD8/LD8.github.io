@@ -34,19 +34,40 @@ categories: JavaScript Notes
   const paragraphs = document.getElementsByTagName("p");
   ```
 
-- `.querySelector`: use one or more CSS selectors to select:
+- `.querySelector`: returns the FIRST element within the document that matches the specified group of selectors, or null if no matches are found  
+  This is more concise and a more modern way to select elements.
 
   ```js
   const queryUnicycle = document.querySelector(".unicycle");
   const queryDiv2 = document.querySelector("#div2");
   ```
 
-- `.querySelectorALL`: use an array of CSS selectors to select:
+- `.querySelectorALL`: returns an array of objects with the elements that match the specified group of selectors  
+  This is more concise and a more modern way to select elements.
+
   ```js
   const queryAll = document.querySelectorAll(".unicycle, #div2");
   ```
 
-### **Changing**
+  ### **looping**: You can use a `forEach()` method to loop through all the element selected
+
+  ```js
+  let all_images = document.querySelectorAll(".article_image");
+
+  all_images.forEach(image => {
+    console.log("image: ", image);
+  });
+  ```
+
+  ### You can always preview the select result by using `console.table()`:
+
+  ```js
+  let all_images = document.querySelectorAll(".article_image");
+
+  console.table(all_images);
+  ```
+
+### **Changing** elements
 
 - `var.innerHTML`
 
@@ -82,7 +103,7 @@ categories: JavaScript Notes
   Following settings will remove original _inline style_ from the tag and replace it with the following settings, or you can do the above to set one style at a time to avoid this behavior:
 
   - `var.style.cssText = "color: blue; border: 1px solid black";`
-  - `var.setAttribute("stile", "color: red; border: 1px solid blue;");`
+  - `var.setAttribute("style", "color: red; border: 1px solid blue;");`
 
   **Refs**:
 
@@ -118,11 +139,11 @@ categories: JavaScript Notes
   document.getElementById("myBtn").onclick = changeColor;
   ```
 
-### **`onload`** and **unload** events on a <body> tag
+### **`onload`** event on a <body> tag
 
 ### **`oninput`** event in `<input />` tag
 
-- `<input type="text" id="words" oninput="func()" />`  
+- `<input type="text" id="words" oninput="func()" />`
   do something on every keyboard stroke
 
 ### **`onmouseover`** and **`onmouseout`** events
@@ -147,7 +168,7 @@ function mOut(obj) {
 
 ## **`addEventListener(event, function, useCapture)`**
 
-`useCapture` is default by `false` -- take effect from inside -> outside  
+`useCapture` is default by `false` -- take effect from inside -> outside
 if set to `true` -- from outside -> inside
 
 ```js
