@@ -80,5 +80,6 @@ Because `Objects.is(a, b)` evaluates wether a and b point to the same value box 
 * `Number.isNaN(a)`
 * `Object.is(a, NaN)`
 * `a !== a`
+
 They will all return `true` if `a` is `NaN`
 
