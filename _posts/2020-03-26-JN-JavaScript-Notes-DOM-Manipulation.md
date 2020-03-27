@@ -136,7 +136,7 @@ categories: JavaScript Notes
   function changeColor(obj) {
     obj.style.color = "Peru";
   }
-  document.getElementById("myBtn").onclick = changeColor;
+  document.getElementById("myBtn").onclick = changeColor; // no quotation marks needed and no function can be chained
   ```
 
 ### **`onload`** event on a <body> tag
@@ -195,3 +195,184 @@ Different to `onclick`, `addEventListener()` can add more than one function to t
 ## **`removeEventListener(event, function, useCapture)`**
 
 Remember to pass in _exactly_ how corresponding `addEventListener`'s argument are set.
+
+## DOM Nodes
+
+Everything in an HTML document is a node. `<html>` is a `root node`, it can have numerous children. The most common ones include `<body>` node and `<head>` node, and they are, to each other, `siblings`. `<html>` node is their `parent` node.
+
+### common DOM Node creation methods:
+
+- `const para = document.createElement('p')`
+- `const text = document.createTextNode("This is a Text Node")`
+- `para.appendChild(text)`
+- `para.innerHTML = "This is a new text node"`
+- `parent.insertBefore(para, child)`: insert para node before child node inside parent node
+- `parent.replaceChild(para, child)`: Use para node to replace child node inside parent node
+- `parent.removeChild(para)`: remove para node inside parent node
+
+## some CSS recap:
+
+- `relative` position:
+  - This element still takes its place, with its height and width intact
+  - it can be moved around with position properties like `left: 10%` or `top:10%`, The original position remains in the DOM tree, meaning it still occupies as the original before it's moved
+- `absolute` position:
+  - This removes the element from the DOM tree, as if it never happened
+  - its zero position refers to the first parent node which isn't in static position, OR refers to the viewport/window if all nodes are in default position
+- `static` position: default poisiton, goes with the flow, its position can NOT be manipulated
+
+## DOM Animation
+
+### If a child is to be animated, the parent element must be `relative` position, and the child should be `absolute` position.
+
+You can use the traditional method:
+
+- `let id = setInterval(func, 10);`
+- `clearInterval(id);`  
+  example code:
+
+  ```js
+  animateBox.addEventListener("click", moveAcross);
+
+  function moveAcross() {
+    let pos = 0;
+    let id = setInterval(frame, 1);
+    function frame() {
+      if (pos > 500) {
+        clearInterval(id);
+      } else {
+        pos++;
+        animateBox.style.top = pos + "px";
+        animateBox.style.left = pos + "px";
+      }
+    }
+  }
+  ```
+
+### Another method is `Element.animate()`, checkout the **[Github Repo here](https://github.com/web-animations/web-animations-js)**
+
+Example code:
+
+```js
+var animation = aBox.animate(
+  {
+    opacity: [0.8, 1],
+    transform: ["scale(0.1)", "scale(1)"]
+  },
+  {
+    direction: "alternate",
+    duration: 500,
+    iterations: Infinity
+  }
+);
+```
+
+## Window Object
+
+Each tab in a Web Browser has its own window Object.
+
+### Window Properties:
+
+- `window.innerWidth`
+- `window.innerHeight`
+
+  ### Example of Usage:
+
+  ```js
+  // create the node, has to be declared before adding the listener
+  const pMonitor = document.createElement("h2");
+  pMonitor.style.cssText = "text-align: center";
+  document.body.insertBefore(pMonitor, animateDiv);
+
+  // add event listener
+  window.addEventListener("resize", updateSizeText);
+  // run the update function to update the text shown in the node above
+  updateSizeText();
+
+  function updateSizeText() {
+    pMonitor.textContent =
+      "window's Height: " +
+      window.innerHeight +
+      ";\n window's Width: " +
+      window.innerWidth;
+  }
+  ```
+
+### use window Object to **OPEN** a window
+
+```js
+const openVABtn = document.querySelector("#openVABtn");
+openVABtn.addEventListener("click", openVA);
+let newWindowObj;
+function openVA() {
+  newWindowObj = window.open(
+    "https://va-boutique.com",
+    "newWindow",
+    "menubar=false,location=true,resizable=true,scrollbars=true,width=800,height=500,top=-1000,left=00"
+  );
+}
+```
+
+### use window Object to **CLOSE** a window
+
+```js
+const closeVABtn = document.querySelector("#closeVABtn");
+closeVABtn.onclick = closeWindow;
+function closeWindow() {
+  newWindowObj.close();
+}
+```
+
+### usage of `window name` ("newWindow" in the above example)
+
+Use an anchor tag's `target` attribute to open a new link inside the `"newWindow"`.
+
+```html
+<a target="newWindow" href="https://DonLee.online">Visit Don Lee</a>
+```
+
+### `move()` a window and gain `focus()`:
+
+```js
+function move() {
+  window.move(50, 0); // push the window to the right by 50px
+  window.focus(); // pop the window to the top of the screen
+}
+```
+
+## use const to define a function: POSITION matters
+
+`const funcName = () => {...}`  
+This function can not be accessed before it's been declared, however:  
+`function funcName() {...}`  
+CAN be accessed anywhere in the document.
+
+## Pop up boxes: window objects method
+
+There are 3 kinds of pop up boxes, and ALL are methods of the `window` Object. The position of the pop up boxes can NOT be controled. Use with caution.
+
+- `window.alert("message")`
+  ```js
+  alert("CAN NOT ACCESS");
+  ```
+- `window.confirm("message")`: let user choose 'yes' or 'cancel', it returns a boolean
+  ```js
+  if (confirm("want to quit?")) {
+    // redirect to another page
+  } else {
+    // e.g. encourage user to stay
+  }
+  ```
+- `window.prompt("message")`: this can be used to interact with users, a bit like `input()` method in python
+
+  ```js
+  let userName = prompt("Please type in your name");
+  // userName will catch the input from user
+
+  if (userName == null || userName === "") {
+    console.log("user cancelled the prompt");
+  } else {
+    console.log("Hello " + userName + "!");
+  }
+  ```
+
+## `cookies` VS `localStorage` VS `sessionStorage`
