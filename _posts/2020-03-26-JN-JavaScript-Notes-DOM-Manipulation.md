@@ -227,7 +227,8 @@ Everything in an HTML document is a node. `<html>` is a `root node`, it can have
 You can use the traditional method:
 
 - `let id = setInterval(func, 10);`
-- `clearInterval(id);`  
+- `clearInterval(id);`
+- `setTimeout(func, 3000)`: run this function after 3 seconds
   example code:
 
   ```js
@@ -266,7 +267,7 @@ var animation = aBox.animate(
 );
 ```
 
-## Window Object
+## Window Object: [Details on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window)
 
 Each tab in a Web Browser has its own window Object.
 
@@ -339,7 +340,7 @@ function move() {
 }
 ```
 
-## use const to define a function: POSITION matters
+## BE CAREFUL where you define a const
 
 `const funcName = () => {...}`  
 This function can not be accessed before it's been declared, however:  
@@ -388,11 +389,10 @@ There are 3 kinds of pop up boxes, and ALL are methods of the `window` Object. T
 |   **Storage Location** | Browser and server | Browser only | Browser only   |
 | **Sent with requests** | yes                | No           | No             |
 
-
 ### USAGE: You can check in **`Application tab`** in the `Developer Tools` with Chrome Browser:
 
 - ### localStorage examples:
-  
+
   ```js
   localstorage.setItem("breakfast", "cereal"); // items are defined by key-value pairs
   // to retrieve value
@@ -402,37 +402,40 @@ There are 3 kinds of pop up boxes, and ALL are methods of the `window` Object. T
 - ### sessionStorage examples:
 
   ```js
-  sessionstorage.setItem("breakfast", "cereal");// items are defined by key-value pairs
+  sessionstorage.setItem("breakfast", "cereal"); // items are defined by key-value pairs
   // to retrieve value
   console.log(sessionStorage.getItem("breakfast")); // cereal
   ```
 
 #### The Storage does not clear the storage data automatically, to clear the data:
+
 ```js
 // to clear the value stored in 'breakfast'
-localStorage.removeItem('breakfast');
+localStorage.removeItem("breakfast");
 // clear all the items
-localStorage.clear()
+localStorage.clear();
 ```
 
-- ### cookie examples:  
-  * a simple cookie
+- ### cookie examples:
+
+  - a simple cookie
     ```js
     document.cookie = "hello=true"; // defined by key-value pair as well
     ```
-  * cookie with `expiration date`
+  - cookie with `expiration date`
     ```js
     document.cookie = "person=don; expires=Fri, 31 Dec 9999 23:59:59 GMT";
     ```
-  * cookie with `expiration date` and `path`
+  - cookie with `expiration date` and `path`
     ```js
-    document.cookie = "person=don; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
+    document.cookie =
+      "person=don; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
     ```
-  * to `delete` a cookie  
+  - to `delete` a cookie  
     Set the `person` to `blank` and set an passed date to `expires`
+
     ```js
     document.cookie = "person=; expires=Fri, 31 Dec 1970 23:59:59 GMT; path=/";
-
     ```
 
 ## `history` property of the `window` Object
@@ -442,6 +445,6 @@ localStorage.clear()
 - `history.back()`: go back one page in history
 - `history.forward()`: go forward one page in history
 - `history.go(-2)`: go back a number of pages in history (if the value is negative) or go forward (if the value is positive)
-- `history.replaceStage('something to pass on to the new page', null, 'a_link_or_to_replace_partial_domain_name_in_string')`: replace current history page with the third value passed in, and pass on the first value as a state, you can `console.log(history.state)` to check it
+- `history.replaceState('something to pass on to the new page', null, 'a_link_or_to_replace_partial_domain_name_in_string')`: replace current history page with the third value passed in, and pass on the first value as a state, you can `console.log(history.state)` to check it
 - `history.pushState(null, null, a_link_or_to_replace_partial_domain_name_in_string')`: to create a new history page with the link value passed in  
   **Note**: the last two methods will NOT refresh the page or go to the link passed in, it merely changed the appearance of the link in browser

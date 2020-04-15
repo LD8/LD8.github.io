@@ -201,4 +201,35 @@ Because it's a method to inform the `React VirtualDOM` that a part of the page h
 
 ## [React.Component](https://reactjs.org/docs/react-component.html) API ref
 
-## [React lifecycle methods diagram](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) cheatsheet
+## 🏄‍♂️ LIFECYCLE!
+
+### [React lifecycle methods diagram](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) cheatsheet
+
+### Function KEYWORDS
+* 'mount': the action which brings the component to life, only after this action you can see the component on the page, before this action, the component is non-existent
+* 'unmount': the action which takes the component/element out of the DOM
+* 'update': the action which updates the state of this component
+
+
+### Actual FUNCTIONS
+* ` static getDerivedStateFromProps(props, state) { }` copy props into state
+
+* `componentWillMount = () => { }` do something before the render function, API transaction might not complete before rendering the page so not recommended to use AJAX calls here
+ 
+* `componentWillReceiveProps = () => { }` do something when the props passing in this component change 
+
+* `componentWillUpdate = () => {}`
+
+* `shouldComponentUpdate = (nextProps, nextState) => { return a boolean to decide whether the component should update or not }` you can compare current state with nextState to decide whether to update the component 
+
+* `getSnapshotBeforeUpdate(prevProps, prevState) {}` whatever returned here will be passed into `componentDidUpdate` method as the 3rd argument `snapshot`
+
+* `render() { return ... }` RENDER FUNCTION
+
+* `componentDidMount = () => { }` do something after the render function, API calls happening here
+
+* `componentDidUpdate = (prevProps, prevState, snapshot) => {}` do something when this component's state is updated
+
+* `componentWillUnmount = () => {}`
+
+* `componentDidCatch(error, info) {}` catches errors without everything else crashing
