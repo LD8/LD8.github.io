@@ -8,7 +8,7 @@ categories: Daily Notes
 
 I posted this yesterday, however, no one answered me on SO. So I experimented a bit and searched for a while online, finally I figured it out... Most of the seemingly unsolvable mystery caused by the holes in the knowledge. Luckily, they can be patched:
 1. apparently, you need to [bind uploaded images to a form](https://docs.djangoproject.com/en/3.0/ref/forms/api/#binding-uploaded-files-to-a-form), that is:
-	* adding `enctype="multipart/form-data"` in the `form` tag
+	* adding [`enctype="multipart/form-data"`](https://www.scaler.com/topics/html/forms-in-html/) in the `form` tag
 	* when you use the form, you need to bind the file data.
 2. use `request.FILES` as well as `request.POST` in `views.py` working out the logic
 
